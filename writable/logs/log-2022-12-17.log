@@ -1,0 +1,153 @@
+ERROR - 2022-12-17 00:42:55 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: YES) in C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'root', 'simag', 3306, '', 0)
+#1 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\simag-new-main\app\Controllers\Home.php(14): CodeIgniter\Model->__call('get', Array)
+#6 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\CodeIgniter.php(902): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\simag-new-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: YES) in C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\xampp\htdocs\simag-new-main\app\Controllers\Home.php(14): CodeIgniter\Model->__call('get', Array)
+#5 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\CodeIgniter.php(902): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\simag-new-main\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\simag-new-main\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-12-17 00:42:55 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: YES)
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(588): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `user`
+JOIN `info_peserta` ON `user`.`id`=`info_peserta`.`userId`
+WHERE `info_peserta`.`endDate` > :info_peserta.endDate:', [...], false)
+ 3 SYSTEMPATH\Model.php(772): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH\Controllers\Home.php(14): CodeIgniter\Model->__call('get', [])
+ 5 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Home->index()
+ 6 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 7 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 00:50:46 --> Undefined array key "info_peserta.status"
+in APPPATH\Views\admin\datapengajuan.php on line 43.
+ 1 APPPATH\Views\admin\datapengajuan.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "info_peserta.status"', 'APPPATH\\Views\\admin\\datapengajuan.php', 43)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\datapengajuan.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/datapengajuan.php', [], true)
+ 5 APPPATH\Controllers\Admin.php(377): view('admin/datapengajuan.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPengajuan()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 01:29:04 --> Undefined variable $user
+in APPPATH\Views\admin\datapeserta.php on line 46.
+ 1 APPPATH\Views\admin\datapeserta.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'APPPATH\\Views\\admin\\datapeserta.php', 46)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\datapeserta.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/datapeserta.php', [], true)
+ 5 APPPATH\Controllers\Admin.php(185): view('admin/datapeserta.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPeserta()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 01:30:57 --> Undefined variable $user
+in APPPATH\Views\admin\datapeserta.php on line 49.
+ 1 APPPATH\Views\admin\datapeserta.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'APPPATH\\Views\\admin\\datapeserta.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\datapeserta.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/datapeserta.php', [], true)
+ 5 APPPATH\Controllers\Admin.php(185): view('admin/datapeserta.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPeserta()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 01:31:21 --> Undefined variable $user
+in APPPATH\Views\admin\datapeserta.php on line 49.
+ 1 APPPATH\Views\admin\datapeserta.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'APPPATH\\Views\\admin\\datapeserta.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\datapeserta.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/datapeserta.php', [], true)
+ 5 APPPATH\Controllers\Admin.php(187): view('admin/datapeserta.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPeserta()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 01:32:33 --> Undefined variable $user
+in APPPATH\Views\admin\datapeserta.php on line 49.
+ 1 APPPATH\Views\admin\datapeserta.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $user', 'APPPATH\\Views\\admin\\datapeserta.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\datapeserta.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/datapeserta.php', [], true)
+ 5 APPPATH\Controllers\Admin.php(187): view('admin/datapeserta.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPeserta()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 01:34:00 --> foreach() argument must be of type array|object, int given
+in APPPATH\Views\admin\datapeserta.php on line 49.
+ 1 APPPATH\Views\admin\datapeserta.php(49): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, int given', 'APPPATH\\Views\\admin\\datapeserta.php', 49)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\datapeserta.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/datapeserta.php', [], true)
+ 5 APPPATH\Controllers\Admin.php(188): view('admin/datapeserta.php', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPeserta()
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 01:34:29 --> Call to undefined method App\Models\UserModel::getResultArray
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(173): CodeIgniter\Model->__call('getResultArray', [])
+ 2 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPeserta()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 01:36:14 --> Call to undefined method App\Models\UserModel::getResultArray
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(173): CodeIgniter\Model->__call('getResultArray', [])
+ 2 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->dataPeserta()
+ 3 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 02:19:49 --> Invalid file: admin/data/peserta/assign/divisi/.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('admin/data/peserta/assign/divisi/.php')
+ 2 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/data/peserta/assign/divisi/', [], true)
+ 3 APPPATH\Controllers\Admin.php(616): view('admin/data/peserta/assign/divisi/', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->setDivisi('4')
+ 5 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-12-17 02:27:46 --> Trying to access array offset on value of type null
+in APPPATH\Views\admin\detailpeserta.php on line 27.
+ 1 APPPATH\Views\admin\detailpeserta.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'APPPATH\\Views\\admin\\detailpeserta.php', 27)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\admin\\detailpeserta.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1142): CodeIgniter\View\View->render('admin/detailpeserta', [], true)
+ 5 APPPATH\Controllers\Admin.php(224): view('admin/detailpeserta', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(902): App\Controllers\Admin->detailPeserta('4')
+ 7 SYSTEMPATH\CodeIgniter.php(457): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(340): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
