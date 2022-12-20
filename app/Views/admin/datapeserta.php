@@ -122,7 +122,7 @@
                                     <td><?= $value['email']; ?></td>
                                     <td><?= $value['nama_divisi']; ?></td>
                                     <td>
-                                        <a href="<?= base_url('dashboard/admin/data/peserta/assign/divisi/' . $value['id']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
+                                        <a href="<?= base_url('dashboard/admin/data/peserta/assign/divisi/' . $value['user_id']) ?>" class="btn btn-success"><i class="fa fa-edit"></i></a>
                                     </td>
 
                                 </tr>
