@@ -18,7 +18,7 @@ use Nexus\CsConfig\Ruleset\AbstractRuleset;
 /**
  * Defines the ruleset used for the CodeIgniter4 organization.
  *
- * @internal
+ * {@internal Use of this class is not covered by the backward compatibility promise for CodeIgniter4.}
  */
 final class CodeIgniter4 extends AbstractRuleset
 {
@@ -162,6 +162,7 @@ final class CodeIgniter4 extends AbstractRuleset
             'fully_qualified_strict_types'           => true,
             'function_declaration'                   => [
                 'closure_function_spacing'   => 'one',
+                'closure_fn_spacing'         => 'one',
                 'trailing_comma_single_line' => false,
             ],
             'function_to_constant' => [
@@ -181,6 +182,7 @@ final class CodeIgniter4 extends AbstractRuleset
                     'package',
                     'subpackage',
                 ],
+                'case_sensitive' => false,
             ],
             'general_phpdoc_tag_rename' => [
                 'case_sensitive' => false,
@@ -455,6 +457,7 @@ final class CodeIgniter4 extends AbstractRuleset
                     ['phpstan-pure', 'psalm-pure'],
                     ['readonly', 'psalm-readonly'],
                     ['return', 'phpstan-return', 'psalm-return'],
+                    ['runTestsInSeparateProcess', 'runInSeparateProcess', 'preserveGlobalState'],
                     ['template', 'phpstan-template', 'psalm-template'],
                     ['template-covariant', 'phpstan-template-covariant', 'psalm-template-covariant'],
                     ['phpstan-type', 'psalm-type'],

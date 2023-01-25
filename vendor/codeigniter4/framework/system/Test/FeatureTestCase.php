@@ -18,7 +18,6 @@ use CodeIgniter\HTTP\URI;
 use CodeIgniter\HTTP\UserAgent;
 use CodeIgniter\Router\Exceptions\RedirectException;
 use CodeIgniter\Router\RouteCollection;
-use Config\App;
 use Config\Services;
 use Exception;
 use ReflectionException;
@@ -159,11 +158,9 @@ class FeatureTestCase extends CIUnitTestCase
 
         // Clean up any open output buffers
         // not relevant to unit testing
-        // @codeCoverageIgnoreStart
         if (\ob_get_level() > 0 && (! isset($this->clean) || $this->clean === true)) {
-            \ob_end_clean();
+            \ob_end_clean(); // @codeCoverageIgnore
         }
-        // @codeCoverageIgnoreEnd
 
         // Simulate having a blank session
         $_SESSION                  = [];
@@ -176,12 +173,7 @@ class FeatureTestCase extends CIUnitTestCase
 
         // Initialize the RouteCollection
         if (! $routes = $this->routes) {
-            require APPPATH . 'Config/Routes.php';
-
-            /**
-             * @var RouteCollection $routes
-             */
-            $routes->getRoutes('*');
+            $routes = Services::routes()->loadRoutes();
         }
 
         $routes->setHTTPVerb($method);
@@ -207,15 +199,13 @@ class FeatureTestCase extends CIUnitTestCase
         Services::router()->setDirectory(null);
 
         // Ensure the output buffer is identical so no tests are risky
-        // @codeCoverageIgnoreStart
         while (\ob_get_level() > $buffer) {
-            \ob_end_clean();
+            \ob_end_clean(); // @codeCoverageIgnore
         }
 
         while (\ob_get_level() < $buffer) {
-            \ob_start();
+            \ob_start(); // @codeCoverageIgnore
         }
-        // @codeCoverageIgnoreEnd
 
         return new FeatureResponse($response);
     }
@@ -304,7 +294,7 @@ class FeatureTestCase extends CIUnitTestCase
      */
     protected function setupRequest(string $method, ?string $path = null): IncomingRequest
     {
-        $config = config(App::class);
+        $config = config('App');
         $uri    = new URI(rtrim($config->baseURL, '/') . '/' . trim($path, '/ '));
 
         $request      = new IncomingRequest($config, clone $uri, null, new UserAgent());

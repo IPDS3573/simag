@@ -729,6 +729,14 @@ class CloudRetail extends \Google\Service
                   'location' => 'query',
                   'type' => 'string',
                 ],
+                'prebuiltRule' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
+                'rawJson' => [
+                  'location' => 'query',
+                  'type' => 'string',
+                ],
                 'uri' => [
                   'location' => 'query',
                   'type' => 'string',
@@ -776,6 +784,10 @@ class CloudRetail extends \Google\Service
                   'location' => 'path',
                   'type' => 'string',
                   'required' => true,
+                ],
+                'writeAsync' => [
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ],
               ],
             ],

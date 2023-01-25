@@ -11,6 +11,7 @@
 
 namespace CodeIgniter\Images\Handlers;
 
+use CodeIgniter\I18n\Time;
 use CodeIgniter\Images\Exceptions\ImageException;
 use Config\Images;
 use Exception;
@@ -41,12 +42,9 @@ class ImageMagickHandler extends BaseHandler
     {
         parent::__construct($config);
 
-        // We should never see this, so can't test it
-        // @codeCoverageIgnoreStart
         if (! (extension_loaded('imagick') || class_exists(Imagick::class))) {
-            throw ImageException::forMissingExtension('IMAGICK');
+            throw ImageException::forMissingExtension('IMAGICK'); // @codeCoverageIgnore
         }
-        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -279,7 +277,7 @@ class ImageMagickHandler extends BaseHandler
             return $this->resource;
         }
 
-        $this->resource = WRITEPATH . 'cache/' . time() . '_' . bin2hex(random_bytes(10)) . '.png';
+        $this->resource = WRITEPATH . 'cache/' . Time::now()->getTimestamp() . '_' . bin2hex(random_bytes(10)) . '.png';
 
         $name = basename($this->resource);
         $path = pathinfo($this->resource, PATHINFO_DIRNAME);
@@ -324,7 +322,10 @@ class ImageMagickHandler extends BaseHandler
      */
     protected function _text(string $text, array $options = [])
     {
-        $cmd = '';
+        $xAxis   = 0;
+        $yAxis   = 0;
+        $gravity = '';
+        $cmd     = '';
 
         // Reverse the vertical offset
         // When the image is positioned at the bottom

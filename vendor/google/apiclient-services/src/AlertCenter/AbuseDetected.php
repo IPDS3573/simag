@@ -21,10 +21,15 @@ class AbuseDetected extends \Google\Model
 {
   protected $additionalDetailsType = EntityList::class;
   protected $additionalDetailsDataType = '';
+  public $additionalDetails;
   /**
    * @var string
    */
   public $alertDescriptor;
+  /**
+   * @var string
+   */
+  public $nextSteps;
   /**
    * @var string
    */
@@ -65,6 +70,20 @@ class AbuseDetected extends \Google\Model
   public function getAlertDescriptor()
   {
     return $this->alertDescriptor;
+  }
+  /**
+   * @param string
+   */
+  public function setNextSteps($nextSteps)
+  {
+    $this->nextSteps = $nextSteps;
+  }
+  /**
+   * @return string
+   */
+  public function getNextSteps()
+  {
+    return $this->nextSteps;
   }
   /**
    * @param string

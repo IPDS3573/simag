@@ -22,8 +22,6 @@ use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaArchiveBundleRespo
 use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaExecuteIntegrationsRequest;
 use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaExecuteIntegrationsResponse;
 use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaListIntegrationsResponse;
-use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest;
-use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse;
 use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaScheduleIntegrationsRequest;
 use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaScheduleIntegrationsResponse;
 
@@ -32,7 +30,7 @@ use Google\Service\Integrations\GoogleCloudIntegrationsV1alphaScheduleIntegratio
  * Typical usage is:
  *  <code>
  *   $integrationsService = new Google\Service\Integrations(...);
- *   $integrations = $integrationsService->integrations;
+ *   $integrations = $integrationsService->projects_locations_products_integrations;
  *  </code>
  */
 class ProjectsLocationsProductsIntegrations extends \Google\Service\Resource
@@ -42,7 +40,7 @@ class ProjectsLocationsProductsIntegrations extends \Google\Service\Resource
    * SERVICE. Soft-deletes the bundle. (integrations.archiveBundle)
    *
    * @param string $name Required. The bundle to archive. Format:
-   * projects/{project}/integrations/{integration}
+   * projects/{project}/locations/{location}/integrations/{integration}
    * @param GoogleCloudIntegrationsV1alphaArchiveBundleRequest $postBody
    * @param array $optParams Optional parameters.
    * @return GoogleCloudIntegrationsV1alphaArchiveBundleResponse
@@ -101,21 +99,6 @@ class ProjectsLocationsProductsIntegrations extends \Google\Service\Resource
     $params = ['parent' => $parent];
     $params = array_merge($params, $optParams);
     return $this->call('list', [$params], GoogleCloudIntegrationsV1alphaListIntegrationsResponse::class);
-  }
-  /**
-   * Get execution stats (integrations.monitorexecutionstats)
-   *
-   * @param string $parent Required. The parent resource name:
-   * {parent=projects/locations}.
-   * @param GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest $postBody
-   * @param array $optParams Optional parameters.
-   * @return GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse
-   */
-  public function monitorexecutionstats($parent, GoogleCloudIntegrationsV1alphaMonitorExecutionStatsRequest $postBody, $optParams = [])
-  {
-    $params = ['parent' => $parent, 'postBody' => $postBody];
-    $params = array_merge($params, $optParams);
-    return $this->call('monitorexecutionstats', [$params], GoogleCloudIntegrationsV1alphaMonitorExecutionStatsResponse::class);
   }
   /**
    * Schedules an integration for execution by passing the trigger id and the

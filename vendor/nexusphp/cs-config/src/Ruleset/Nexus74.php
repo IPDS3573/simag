@@ -155,6 +155,7 @@ final class Nexus74 extends AbstractRuleset
             'fully_qualified_strict_types' => true,
             'function_declaration' => [
                 'closure_function_spacing' => 'one',
+                'closure_fn_spacing' => 'one',
                 'trailing_comma_single_line' => false,
             ],
             'function_to_constant' => [
@@ -173,6 +174,7 @@ final class Nexus74 extends AbstractRuleset
                     'package',
                     'subpackage',
                 ],
+                'case_sensitive' => false,
             ],
             'general_phpdoc_tag_rename' => [
                 'case_sensitive' => false,
